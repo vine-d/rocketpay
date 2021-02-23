@@ -1,5 +1,9 @@
 # Rocketpay
 
+A very simple payment API
+
+---
+
 To start your Phoenix server:
 
   * Install dependencies with `mix deps.get`
