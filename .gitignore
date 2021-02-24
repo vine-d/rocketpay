@@ -26,3 +26,8 @@ rocketpay-*.tar
 # we ignore priv/static. You may want to comment
 # this depending on your deployment strategy.
 /priv/static/
+
+# Aditional IGNORES
+*.beam
+/config/*.secret.exs
+.elixir_ls/
