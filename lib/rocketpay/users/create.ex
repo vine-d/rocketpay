@@ -27,15 +27,13 @@ defmodule Rocketpay.Users.Create do
   end
 
   defp preload_data(repo, user) do
-    user.id
-    |> account_changeset()
-    |> repo.insert()
+    {:ok, repo.preload(user, :account)}
   end
 
   defp run_transaction(multi) do
     case Repo.transaction(multi) do
       {:error, _operation, reason, _changes} -> {:error, reason}
-      {:ok, %{create_account: account}} -> IO.inspect(account)
+      {:ok, %{preload_data: user}} -> {:ok, user}
     end
   end
 
